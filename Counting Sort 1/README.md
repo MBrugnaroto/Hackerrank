@@ -34,3 +34,7 @@ countingSort has the following parameter(s):
 
 The first line contains an integer , the number of items in arr[i].
 Each of the next n lines contains an integer arr[i] where 0<=i<n.
+
+**Explanation**
+
+Each of the resulting values result[i] represents the number of times i appeared in arr.
