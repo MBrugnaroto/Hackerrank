@@ -5,49 +5,35 @@ import os
 import random
 import re
 import sys
-import itertools
-
 #
-# Complete the 'twoArrays' function below.
+# Complete the 'countingSort' function below.
 #
-# The function is expected to return a STRING.
-# The function accepts following parameters:
-#  1. INTEGER k
-#  2. INTEGER_ARRAY A
-#  3. INTEGER_ARRAY B
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
 #
 
-def twoArrays(k, A, B):
+def countingSort(arr):
     # Write your code here
-    A.sort()
-    B.sort(reverse=True)
-        
-    result_map = [x + y for x, y in zip(A, B)]
+    result_str = ""
+    result = []
+    n = len(arr)
     
-    for result in result_map:
-        if result < k:
-            return "NO"
-
-    return "YES"
+    for index in range(n):
+        result.append(0)
+        
+    for index in range(n):
+        if arr[index] >= n:
+            return
+        result[arr[index]] += 1
+    
+    for index in range(100):
+        result_str += str(result[index]) + ' '
+    
+    print(result_str)
 
 if __name__ == '__main__':
-    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input().strip())
 
-    q = int(input().strip())
+    arr = list(map(int, input().rstrip().split()))
 
-    for q_itr in range(q):
-        first_multiple_input = input().rstrip().split()
-
-        n = int(first_multiple_input[0])
-
-        k = int(first_multiple_input[1])
-
-        A = list(map(int, input().rstrip().split()))
-
-        B = list(map(int, input().rstrip().split()))
-
-        result = twoArrays(k, A, B)
-
-        #fptr.write(result + '\n')
-
-    #fptr.close()
+    result = countingSort(arr)

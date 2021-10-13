@@ -19,20 +19,19 @@ import itertools
 
 def twoArrays(k, A, B):
     # Write your code here
-    A = list(itertools.permutations(A))
-    B = list(itertools.permutations(B))
-
-    for x, y in zip(A, B):
-        result_sum = [x + y for x, y in zip(A, B)]
-
-        for result in result_sum:
-            if result < k:
-                return "NO"
+    A.sort()
+    B.sort(reverse=True)
+        
+    result_map = [x + y for x, y in zip(A, B)]
+    
+    for result in result_map:
+        if result < k:
+            return "NO"
 
     return "YES"
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     q = int(input().strip())
 
@@ -49,6 +48,6 @@ if __name__ == '__main__':
 
         result = twoArrays(k, A, B)
 
-        fptr.write(result + '\n')
+        #fptr.write(result + '\n')
 
-    fptr.close()
+    #fptr.close()
