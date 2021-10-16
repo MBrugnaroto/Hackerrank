@@ -18,10 +18,15 @@ import sys
 
 def birthday(s, d, m):
     # Write your code here
+    seq = 0
 
-    result = [x + y for x in s for y in range(m)]
+    for i in range(len(s)-(m-1)):
+        if sum(s[i:m+i]) == d:
+            seq += 1
+
+    return seq
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     n = int(input().strip())
 
@@ -35,6 +40,6 @@ if __name__ == '__main__':
 
     result = birthday(s, d, m)
 
-    fptr.write(str(result) + '\n')
+    #fptr.write(str(result) + '\n')
 
-    fptr.close()
+    #fptr.close()
